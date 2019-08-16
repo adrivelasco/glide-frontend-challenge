@@ -8,6 +8,7 @@ import cs from 'classnames';
 
 import Icon from '../Icon';
 import flatten from '../../utils/flatten';
+import './OrgChart.css';
 
 class Home extends React.Component {
   constructor(props) {
