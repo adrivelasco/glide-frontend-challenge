@@ -1,33 +1,135 @@
-.App {
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #e0ecf5;
+  color: #727272;
+  font-size: 12px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.primary-color {
+  color: #222;
+}
+
+.img-responsive {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.org {
+  max-width: 1280px;
+  padding: 30px 0;
+  overflow-x: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+.org-title {
+  text-align: center;
+  padding: 20px 0;
+  color: #323232;
+}
+
+.org-employee {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.org-employee-children {
+  display: flex;
+  position: relative;
+  margin-top: 5px;
+  transition: all 0.2s ease;
+}
+
+.org-employee-children.toggled {
+  opacity: 0.2;
   pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.org-employee-children > .org-employee {
+  margin-right: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.org-employee-children > .org-employee:last-child {
+  margin-right: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.org-employee-box {
+  min-width: 150px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.65);
+  position: relative;
+}
+
+.org-employee-box-arrow {
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  padding: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.org-employee-box-arrow img {
+  opacity: 0.7;
+}
+
+.org-employee-box.active {
+  background: #fff;
+}
+
+.org-employee-box.active:hover + .org-employee-children .org-employee-box-arrow {
+  transform: rotate(180deg);
+}
+
+.org-employee-box.loading {
+  pointer-events: none;
+  background: #c2d4e0;
+  opacity: 0.5;
+}
+
+.org-employee-box span {
+  display: block;
+  margin: 5px 0;
+  transition: all 0.2s ease;
+}
+
+.org-employee-box:hover {
+  background: #fff;
+}
+
+.org-employee-box:hover .name {
+  color: rgb(38, 88, 182);
 }

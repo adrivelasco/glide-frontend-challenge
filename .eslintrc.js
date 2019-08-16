@@ -48,7 +48,6 @@ module.exports = {
 			}
 		],
 
-		'no-tabs': 1,
 		'no-new': 0,
 		'func-names': 0,
 
@@ -56,14 +55,6 @@ module.exports = {
 
 		'arrow-parens': ['error', 'as-needed'],
 		'arrow-body-style': 0,
-
-		indent: [
-			'error',
-			'space',
-			{
-				SwitchCase: 1
-			}
-		],
 
 		'comma-dangle': ['error', 'never'],
 
