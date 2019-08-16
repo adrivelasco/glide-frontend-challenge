@@ -46,9 +46,8 @@ function queryParams(params) {
 export default function request(url, options) {
   options = {
     body: JSON.stringify(options.body),
-    credentials: 'same-origin',
-    mode: 'no-cors',
     cache: 'default',
+    mode: 'cors',
     headers: {
       'Content-Type': 'application/json'
     },
