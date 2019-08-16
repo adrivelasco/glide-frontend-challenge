@@ -2,7 +2,7 @@
   "name": "glide-frontend-challenge",
   "private": true,
   "version": "1.0.0",
-  "description": "This is the code challenge for applying to FWI's FE Developer Position.",
+  "description": "Glide Frontend Challenge",
   "scripts": {
     "start-server": "yarn workspace server start",
     "start-client": "yarn workspace client start",
