@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('bodyParser');
+const bodyParser = require('body-parser');
 const httpStatus = require('http-status');
 const cors = require('cors');
 const requestPromise = require('request-promise');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const employeesApi =
 'https://2jdg5klzl0.execute-api.us-west-1.amazonaws.com/default/EmployeesChart-Api'
 
@@ -18,12 +18,15 @@ app.get('/api/employees', async(req, res, next) => {
   const options = {
     method: 'GET',
     uri: employeesApi,
+    qs: req.query,
     json: true,
     resolveWithFullResponse: true
   };
+
   try {
-    const data = await requestPromise(options);
-    return res.status(200).json(data);
+    const query = await requestPromise(options);
+    res.status(200).json(query.body);
+    return
   } catch(error) {
     next(error)
   }
